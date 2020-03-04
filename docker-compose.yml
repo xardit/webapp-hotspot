@@ -5,7 +5,7 @@ services:
     container_name: hotspot_web
     image: nginx:1-alpine
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./www:/app
       - ./config/site.conf:/etc/nginx/conf.d/default.conf
@@ -13,7 +13,8 @@ services:
       - hotspot_php
   hotspot_php:
     container_name: hotspot_php
-    image: php:7-fpm
+    build:
+      context: ./config/php-fpm
     expose:
       - 9000
     volumes:

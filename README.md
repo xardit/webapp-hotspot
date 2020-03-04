@@ -1,11 +1,11 @@
+## HOTSPOT LOGIN
 
-
-## Step 1 - Create virtual AP
+### Step 1 - Create virtual AP
 Wireless > + > Virtual
 Set at General tab a Name and a Mac Address
 Wireless Tab: `Mode:Ap Bridge`, `Security: Default` for no password and `SSID: MyWifi`
 
-## Step 2 - Setup hostpot
+### Step 2 - Setup hostpot
 IP > Hotspot > Hotspot Setup
 1. Specify interface: wlan2 (the virtual one we created)
 2. Leave default: Local Address, Address Pool, Certificate, SMTP Server
@@ -23,8 +23,16 @@ IP > Hotspot > Hotspot Setup
 `hsproof1` which is related to our `hotspot1` that we created, doubleclick and at Login tab at `Login by` keep checked only `HTTP PAP`, we need this for http login with GET request by our app.
 You could also specify rate limits or proxies at general for this profle
 
-## Step 3 - Whitelist server for the login page
+### Step 3 - Whitelist server for the login page
 Add your server and another host to allow connections before hotspot login
 Go to Hotspot > Walled Garden: set `Action Allow` and `Dst. Host` to your server, example: `192.168.1.200` or with name matching `*.google.com`
 
 Note: To setup more users go to Hotspot > Users
+
+### Step 4 - Upload login.html
+Edit login.html and replace with current server IP Address
+Upload it with winbox to Files > "hotspot" folder by replacing current login.html file
+
+
+### Export to CSV with hidden url
+http://SERVER_IP/?export4128093

@@ -7,7 +7,6 @@ _init_magicQuotes();
 $db=new db;
 $conn=$db->conn();
 
-
 function genLike($arr,$key='emri',$seperator='OR'){ // return [sql]<sql statement with ? and [exec]<execute params
 	$r=array();
 	foreach ($arr as $v) {
@@ -22,11 +21,11 @@ function genLike($arr,$key='emri',$seperator='OR'){ // return [sql]<sql statemen
 class db {
 	public function conn(){
 		set_exception_handler('db::db_error');
-		// $c = new PDO('mysql:host=hotspot_db;dbname=data;charset=utf8;', 'admin', 'admin', array(
-		// 	PDO::ATTR_PERSISTENT => true,
-		// 	PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING //ERRMODE_EXCEPTION or ERRMODE_WARNING
-		// ));
-		$c = new PDO('sqlite:list.sqlite3');
+		$c = new PDO('mysql:host=hotspot_db;dbname=data;charset=utf8;', 'root', 'root', array(
+			PDO::ATTR_PERSISTENT => true,
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING //ERRMODE_EXCEPTION or ERRMODE_WARNING
+		));
+		// $c = new PDO('sqlite:list.sqlite3');
 		return $c;
 	}
 	public static function db_error($log){
@@ -34,7 +33,8 @@ class db {
 			$mylog=$_SERVER['REMOTE_ADDR']." - ".$_SERVER['PHP_SELF']." - ".date("d/m/Y h:i:s")." : ".$log."\n";
 			$mylog_hidden='<b>'.$_SERVER['REMOTE_ADDR']." - Database server error , please contact admin (diti)</b>";
 			// $ff=fopen('db_err_test.log','a');fwrite($ff,$mylog);fclose($ff);
-			exit((((isset($GLOBALS['dev'])&&$GLOBALS['dev']))?$mylog:$mylog_hidden));
+			exit($mylog);
+			// exit((((isset($GLOBALS['dev'])&&$GLOBALS['dev']))?$mylog:$mylog_hidden));
 	}
 	public function fields($t){ //getFields table
 		$a=$GLOBALS['conn']->query("DESCRIBE `$t`");
