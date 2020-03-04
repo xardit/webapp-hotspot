@@ -21,7 +21,7 @@ function genLike($arr,$key='emri',$seperator='OR'){ // return [sql]<sql statemen
 class db {
 	public function conn(){
 		set_exception_handler('db::db_error');
-		$c = new PDO('mysql:host=hotspot_db;dbname=data;charset=utf8;', 'root', 'root', array(
+		$c = new PDO('mysql:host=hotspot_db;dbname=data;charset=utf8;', 'admin', 'admin', array(
 			PDO::ATTR_PERSISTENT => true,
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING //ERRMODE_EXCEPTION or ERRMODE_WARNING
 		));
