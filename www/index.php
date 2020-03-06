@@ -109,7 +109,7 @@ if(isset($_GET['export4128093'])){
 			
 			<br>
 			<div class="alert alert-light text-center" role="alert">
-			  By clicking Register you agree to our <a href="tos.html">terms and conditions</a>.
+			  By clicking Register you agree to our <a href="tos.html">Privacy Policy & Terms and Conditions</a>.
 			</div>
 			<div class="text-center">
 				<button class="btn btn-primary">Register</button>
