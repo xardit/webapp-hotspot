@@ -2,26 +2,13 @@
 
 $REDIRECT_URL = 'http://google.com';
 $USER = 'user1';
-$PASS = 'JD208R9Y1IEHF';
-
+$PASS = 'pass1';
 
 include 'db.class.php';
 
 // $_GET: apMac, userMac, clientIp, userUrl, loginUrl
-// var_dump($_GET);
-
-// var_dump($_POST);
 
 if(isset($_POST['firstname'])){
-	
-	$db->sql('CREATE TABLE IF NOT EXISTS `data` (
-	  `id` int(11) NOT NULL auto_increment,   
-	  `firstname` varchar(100)  NOT NULL,
-	  `lastname` varchar(100)  NOT NULL,
-	  `email` varchar(100)  NOT NULL,
-	  `reason` varchar(20)  NOT NULL,
-	   PRIMARY KEY  (`id`)
-	);', false, false);
 
 	$db->send([
 		'firstname' => $_POST['firstname'],
